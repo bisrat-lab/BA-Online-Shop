@@ -1,30 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
-
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
 
 // error handler
-app.use(function(err, req, res, next) {
-res.json({error:'error'})
+app.use(function (err, req, res, next) {
+  res.json({ error: "error" });
 });
 
-app.listen(3000);
+const port = process.env.PORT || 3004;
+app.listen(port, () => console.log(`Your server runing On ${port}`));
