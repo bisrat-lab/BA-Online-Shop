@@ -25,7 +25,7 @@ exports.save = async (req, res, next) => {
 
  //!find By ID
 exports.findBookById = (req, res, next) => {
-  res.status(200).json(bookuct.getBookByID(req.params.id));
+  res.status(200).json(Book.getBookByID(req.params.id));
 };
 
  //!Update By ID

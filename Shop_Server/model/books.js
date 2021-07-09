@@ -24,14 +24,14 @@ class Books {
       }
   }
 
-  static getBooksByID(BooksID) {
-    return books.find((prod) => prod.id === BooksID);
+  static getBookByID(bookId) {
+    return books.find((book) => book.id === bookId);
   }
 
-  static deleteById(BooksId){
-      const index = books.findIndex(b=>b.id === BooksId);
+  static deleteById(bookId){
+      const index = books.findIndex(b=>b.id === bookId);
       if(index > -1){
-          books = books.filter(b=>b.id !== BooksId);
+          books = books.filter(b=>b.id !== bookId);
       }else {
         throw new Error('Not Found');
     }
