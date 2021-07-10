@@ -13,8 +13,9 @@ exports.save = async (req, res, next) => {
     const savedBook = await new Book(
       null,
       book.title,
-      book.price,
-      book.info
+      book.isbn,
+      book.publishedDate,
+      book.author
     ).save();
 
     res.json(savedBook);
@@ -24,8 +25,8 @@ exports.save = async (req, res, next) => {
 };
 
  //!find By ID
-exports.findBookById = (req, res, next) => {
-  res.status(200).json(Book.getBookByID(req.params.id));
+exports.getBookById = (req, res, next) => {
+  res.status(200).json(Book.findBookByID(req.params.id));
 };
 
  //!Update By ID
@@ -34,8 +35,9 @@ exports.update = (req, res) => {
     const updatebook = new Book(
       req.params.id,
       book.title,
-      book.price,
-      book.info
+      book.isbn,
+      book.publishedDate,
+      book.author
     ).update();
     res.status(200).json(updatebook);
   };

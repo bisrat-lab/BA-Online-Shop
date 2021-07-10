@@ -1,16 +1,17 @@
 let books = [];
 class Books {
-  constructor(id, title, price, info) {
+  constructor(id, title, isbn, publishedDate, author) {
     this.id = id;
     this.title = title;
-    this.price = price;
-    this.info = info;
+    this.isbn = isbn;
+    this.publishedDate = publishedDate;
+    this.author = author;
   }
   static getAll() {
     return books;
   }
   save() {
-    this.id = Math.random().toString();
+     this.id = Math.random().toString();
     books.push(this);
     return this;
   }
@@ -24,8 +25,14 @@ class Books {
       }
   }
 
-  static getBookByID(bookId) {
-    return books.find((book) => book.id === bookId);
+  static findBookByID(bookId) {
+      const index = books.findIndex(b => b.id === bookId);
+      if(index >-1){
+          return books[index];
+      }else{
+          throw new Error('Book Not found');
+      }
+  
   }
 
   static deleteById(bookId){

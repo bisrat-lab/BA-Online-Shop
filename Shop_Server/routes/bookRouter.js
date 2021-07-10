@@ -6,7 +6,7 @@ const bookControllers = require('../Controllers/booksControllers');
 router.get('/',bookControllers.getAllBooks);
 
 //!Get Book by ID
-router.get('/:id',bookControllers.findBookById);
+router.get('/:id',bookControllers.getBookById);
 
 //!Add new Books
 router.post('/',bookControllers.save);
