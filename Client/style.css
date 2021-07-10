@@ -32,3 +32,14 @@
   .cardbox:hover::after {
       opacity: 1;
   }
+
+  #form-Div{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 60px;
+  }
+
+  hr:not([size]) {
+    height: 3px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}

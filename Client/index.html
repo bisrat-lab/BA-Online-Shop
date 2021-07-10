@@ -10,14 +10,24 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="container" id="box">
+        <!-- <a href="addbook.html" 
+            target="popup" 
+            onclick="window.open('addbook.html','popup','width=600,height=600 left=600 top=300'); return false;">
+            Add New Book
+        </a> -->
+        <a href="addbook.html" onclick="basicPopup(this.href);return false">Add New Book</a>
+
+
         <div class="row row-cols-auto" id="book-card">    
         </div>
     </div>
-    <div class="container">
-        <hr>
+    <div class="container" id="form-Div">
+       
         <h2 class="featurette-heading" id="book-heading">Add a new Book</h2>
-        <form id="product-form">
+        <hr class="line">
+        <form id="book-form">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title">
@@ -36,14 +46,10 @@
                 <input type="text" class="form-control" id="author">
             </div>
 
-            <button type="submit" class="btn btn-primary" id="product-btn">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
         </form>
 
-        <!-- <svg class="card"  width="160" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                dy=".3em">140x140</text>
-            </svg> -->
+      
     </div>
 </body>
-</html>
+</html> 

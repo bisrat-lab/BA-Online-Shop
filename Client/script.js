@@ -1,13 +1,26 @@
+function basicPopup(url) {
+    popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+ 
+}
 
 
 window.onload = function(){
 
+
+    //!get all books
     getBooks();
 
+    //! add/update Books
+    document.getElementById('submit-btn').onclick = function(event) {
+        event.preventDefault();
+            if (!document.getElementById('submit-btn').dataset.id) {
+                addBook()  
+            } else {
+                editProduct();
+            }  
+    }
 
-
-
-
+    
 }
 
 async function getBooks(){
@@ -57,7 +70,7 @@ function renderBook(book){
         document.getElementById('isbn').value = book.isbn;
         document.getElementById('publishedDate').value = book.publishedDate;
         document.getElementById('author').value = book.author;
-        document.getElementById('product-btn').dataset.id = book.id;
+        document.getElementById('submit-btn').dataset.id = book.id;
     });
 
     const deleteBtn = document.createElement('button');
@@ -87,4 +100,54 @@ function renderBook(book){
 
     document.getElementById('book-card').appendChild(div);
 
+}
+async function addBook(){
+    let result = await fetch('http://localhost:3005/books/', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            // 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')
+        },
+        body: JSON.stringify({
+            title: document.getElementById('title').value,
+            isbn: document.getElementById('isbn').value,
+            publishedDate: document.getElementById('publishedDate').value,
+            author: document.getElementById('author').value
+        })
+    }).then(res => res.json());
+    document.getElementById('book-form').reset();
+    renderBook(result);
+}
+function editProduct() {
+    const id = document.getElementById('submit-btn').dataset.id;
+    const title = document.getElementById('title').value;
+    const isbn = document.getElementById('isbn').value;
+    const publishedDate = document.getElementById('publishedDate').value;
+    const author = document.getElementById('author').value;
+    fetch('http://localhost:3005/books/' + id, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json',
+                // 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')
+            },
+            body: JSON.stringify({
+                title: title,
+                isbn: isbn,
+                publishedDate: publishedDate,
+                author: author
+            })
+        }).then(response => response.json())
+        .then(jsonObj => {
+            const booksDiv = document.getElementById(id);
+            booksDiv.querySelector('h3').textContent = title;
+            const paragraphArr = booksDiv.querySelectorAll('p');
+            paragraphArr[0].textContent = isbn;
+            // paragraphArr[1].textContent = publishedDate;
+            // paragraphArr[2].textContent = author;
+
+
+            document.getElementById('book-heading').textContent = 'Add a new Book';
+            document.getElementById('submit-btn').dataset.id = '';
+            document.getElementById('book-form').reset();
+        });
 }
