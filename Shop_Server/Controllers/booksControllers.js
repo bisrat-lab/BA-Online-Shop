@@ -1,5 +1,5 @@
-const Book = require("../model/books");
-
+const Book = require("../modules/books");
+// const Cart = require("../model/cart");
  //!Get all Books
 module.exports.getAllBooks = (req, res, next) => {
   res.status(200).json(Book.getAll());
@@ -50,3 +50,11 @@ exports.update = (req, res) => {
     res.status(200).end();
   };
 
+ //!Add to Cart ID
+//  exports.addToCart = (req, res, next) => {
+//   const addBooks = res.json(Book.findBookByID(req.body.id))[0];
+//   console.log(addBooks)
+//   Cart.save(addBooks);
+//   console.log(Cart.getCart())
+//   res.end('saved')
+// };

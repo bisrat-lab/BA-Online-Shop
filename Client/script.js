@@ -3,10 +3,7 @@ function basicPopup(url) {
  
 }
 
-
 window.onload = function(){
-
-
     //!get all books
     getBooks();
 
@@ -18,9 +15,7 @@ window.onload = function(){
             } else {
                 editProduct();
             }  
-    }
-
-    
+    }   
 }
 
 async function getBooks(){
@@ -93,8 +88,36 @@ function renderBook(book){
         });
     });
 
+    // const addtoShopcart = document.createElement('button');
+    // addtoShopcart.style.marginLeft = '5px';
+    // addtoShopcart.classList = 'btn btn-primary btn-sm';
+    // addtoShopcart.classList = 'test';
+
+    // addtoShopcart.textContent = 'ADD TO CART';
+
+    // addtoShopcart.addEventListener('click',function(event){
+    // event.preventDefault();
+    // console.log('try')
+        // let result = fetch('http://localhost:3005/books/', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-type': 'application/json',
+        //         // 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')
+        //     },
+        //     body: JSON.stringify({
+        //         title: document.getElementById('title').value,
+        //         isbn: document.getElementById('isbn').value,
+        //         publishedDate: document.getElementById('publishedDate').value,
+        //         author: document.getElementById('author').value
+        //     })
+        // }).then(res => res.json());
+        // renderBook(result);
+    // })
+    
+
     actions.appendChild(updateBtn);
     actions.appendChild(deleteBtn);
+    // actions.appendChild(addtoShopcart);
 
     div.appendChild(actions);
 

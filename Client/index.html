@@ -1,55 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-
-    <div class="container" id="box">
-        <!-- <a href="addbook.html" 
-            target="popup" 
-            onclick="window.open('addbook.html','popup','width=600,height=600 left=600 top=300'); return false;">
-            Add New Book
-        </a> -->
-        <a href="addbook.html" onclick="basicPopup(this.href);return false">Add New Book</a>
-
-
-        <div class="row row-cols-auto" id="book-card">    
+<html>
+  <head>
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="login.js" defer></script>
+  </head>
+  <body>
+    <!-- <div class="container"> -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">BA online Books Shopping</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </div>
-    <div class="container" id="form-Div">
-       
-        <h2 class="featurette-heading" id="book-heading">Add a new Book</h2>
-        <hr class="line">
-        <form id="book-form">
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title">
+      </nav>
 
-            </div>
-            <div class="mb-3">
-                <label for="isbn" class="form-label">ISBN</label>
-                <input type="text" class="form-control" id="isbn">
-            </div>
-            <div class="mb-3">
-                <label for="publishedDate" class="form-label">Published Date</label>
-                <input type="text" class="form-control" id="publishedDate">
-            </div>
-            <div class="mb-3">
-                <label for="author" class="form-label">Author</label>
-                <input type="text" class="form-control" id="author">
+<div class="container">
+              <div id= "login-div">
+              <form id="login-form">
+                    <div class="mb-3">
+                      <label for="username" class="form-label">User name</label>
+                      <input type="text" class="form-control" id="username"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="login-password" class="form-label">password</label>
+                        <input type="password" class="form-control" id="password"/>
+                    </div>
+                <button class="btn btn-primary" id="login-btn">Login</button>
+                <button class="btn btn-primary" id="sign-btn">Signup</button>
+              </form>
+            <spam id="error-msg" class="warning"></spam>
             </div>
 
-            <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
-        </form>
 
-      
-    </div>
+
+        <div id = "signup-form">
+        <div id = "user-table">
+        <h1>setting</h1>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">User name</th>
+                        <th scope="col">First name</th>
+                        <th scope="col">Last name</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="product-list-body"></tbody>
+                    </tbody>
+                  </table>
+        </div>
+        <div>
+                  <h1>User Registration</h1>
+              <form id="add-form">
+                <div class="mb-3">
+                  <label for="username" class="form-label">User name</label>
+                  <input type="text" class="form-control" id="signup-username"/>
+                </div>
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="signup-firstname">
+                </div>
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="signup-lastname"/>
+                  </div>
+                  <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="signup-password">
+                  </div>
+                <button type="submit" class="btn btn-primary" id="addBtn">Submit</button>
+              </form>
+        </div>
+        </div> 
+</div>
 </body>
-</html> 
+</html>
