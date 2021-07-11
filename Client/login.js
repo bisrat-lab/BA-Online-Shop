@@ -11,6 +11,21 @@ window.onload = function () {
       // displaySignup.style.display = "none";
       displayLogin.style.display = "none";
       displaySignup.style = "block";
+
+
+    //!get all books
+    getBooks();
+
+    //! add/update Books
+    document.getElementById('submit-btn').onclick = function(event) {
+        event.preventDefault();
+            if (!document.getElementById('submit-btn').dataset.id) {
+                addBook()  
+            } else {
+                editProduct();
+            }  
+    } 
+
     };
   
   
@@ -34,7 +49,8 @@ window.onload = function () {
     console.log(result)
     if(result.jwtToken){
         sessionStorage.setItem("accesstoken",result.jwtToken);
-        console.log("Home page")
+        console.log("Home page");
+
     }else{
         console.log('try again')
         usernameinput.value = "";
