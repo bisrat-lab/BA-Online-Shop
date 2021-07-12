@@ -1,54 +1,39 @@
-
 function displayAdminPage(){
+    document.getElementById("logoutBtn").style.display="block";
     document.getElementById("book-form-container").style.display = "block";
-
     document.getElementById("login-div").style.display = "none";
-
     getBooks();
 }
 
-    // const test = sessionStorage.getItem("accessToken");
-    // const payloadd = (test.split('.')[1]);
-    // const role = JSON.parse(atob(payloadd));
+function displayClientPage(){
+    document.getElementById("logoutBtn").style.display="block";
+    document.getElementById("login-div").style.display = "none";
+    getClientBook();  
+}
 
-window.onload = function () {
 
-       
-       
+window.onload = function () {   
     if(sessionStorage.getItem("accessToken")){
-        //  let rolee = JSON.parse(window.sessionStorage.getItem("accessToken"));
-        // console.log(rolee)
-
-        // if(role.role==='admin'){
-        //     console.log(role.role==='admin')
-            displayAdminPage()
-        // }else if(role.role==='user'){
-        //     console.log(role.role==='user')
-        //     console.log('display client page')
-        // }
+            displayAdminPage();
+            displayClientPage();
     }else{
         document.getElementById("book-form-container").style.display = "none";
         document.getElementById("login-div").style.display = "block";
+
+        document.getElementById("logoutBtn").style.display="none";
     }
 
     const displaySignup = document.getElementById("signup-form");
     displaySignup.style.display = "none";
-  
-    // const displayLogin = document.getElementById("login-div");
-    // displayLogin.style.display = "block";
-    
-    // const displayBookform = document.getElementById("book-form-container");
-    // displayBookform.style.display = "none";
 
     document.getElementById("sign-btn").onclick = function (event) {
       event.preventDefault();
+      document.getElementById('signup-form').style.display="block";
+      document.getElementById('login-div').style.display="none";
   
     //!displaySignup.style.display = "none";
-    //   displayLogin.style.display = "none";
-    //   displaySignup.style = "block"; 
+
     };
-        //!get all books
-        // getBooks();
 
         //! add/update Books
         document.getElementById('submit-btn').onclick = function(event) {
@@ -60,8 +45,7 @@ window.onload = function () {
                     editProduct();
                 }  
         }
-  
-  
+
     document.getElementById("login-btn").onclick = async (event) =>{
       event.preventDefault();
       const usernameinput = document.getElementById('username');
@@ -89,6 +73,7 @@ window.onload = function () {
             displayAdminPage();
         }else{
             //!dissplay client page
+            displayClientPage();
             console.log('final try')
         }  
 
@@ -126,6 +111,11 @@ window.onload = function () {
     //   displayLogin.style.display = "block";
     //   displaySignup.style.display = "none";
     };
+
+    document.getElementById('logoutBtn').addEventListener('click',()=>{
+        sessionStorage.removeItem('accessToken');
+        location.reload();
+    })
   };
 
 
@@ -141,6 +131,8 @@ window.onload = function () {
     }).then(response => response.json());
     books.forEach(book => renderBook(book));
 }
+
+
 
 function renderBook(book){
     const div = document.createElement('div');
@@ -172,10 +164,10 @@ function renderBook(book){
     div.appendChild(author); 
 
     const actions = document.createElement('p');
-    const updateBtn = document.createElement('button');
-    updateBtn.classList = 'btn btn-primary btn-sm';
-    updateBtn.textContent = 'UPDATE';
-    updateBtn.addEventListener('click', function(event) {
+    const addtoCartBtn = document.createElement('button');
+    addtoCartBtn.classList = 'btn btn-primary btn-sm';
+    addtoCartBtn.textContent = 'UPDATE';
+    addtoCartBtn.addEventListener('click', function(event) {
         event.preventDefault();
         document.getElementById('book-heading').textContent = 'Edit Book';
         document.getElementById('title').value = book.title;
@@ -232,7 +224,7 @@ function renderBook(book){
     // })
     
 
-    actions.appendChild(updateBtn);
+    actions.appendChild(addtoCartBtn);
     actions.appendChild(deleteBtn);
     // actions.appendChild(addtoShopcart);
 
@@ -290,3 +282,65 @@ function editProduct() {
             document.getElementById('book-form').reset();
         });
 }
+
+async function getClientBook(){
+    let books = await fetch('http://localhost:3006/books',{
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')
+        }
+    }).then(res =>res.json());
+    books.forEach(book=>renderClientBook(book));
+} 
+
+function renderClientBook(book){
+    const div = document.createElement('div');
+    div.classList = 'col-lg-3';
+    div.classList = 'cardbox';
+    div.id = book.id;
+    div.innerHTML = `
+    <svg class="card"  width="160" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
+            dy=".3em">140x140</text>
+        </svg>`;
+
+    const h3 = document.createElement('h3');
+    h3.textContent = book.title;
+
+    const isbn = document.createElement('p');
+    isbn.textContent = book.isbn;
+
+    const publishedDate = document.createElement('p');
+    publishedDate.publishedDate = book.publishedDate;
+
+    const author = document.createElement('p');
+    author.author = book.author;
+
+    div.appendChild(h3);
+    div.appendChild(isbn);
+    div.appendChild(publishedDate);
+    div.appendChild(author); 
+
+    const actions = document.createElement('p');
+    const addtoCartBtn = document.createElement('button');
+    addtoCartBtn.classList = 'btn btn-primary btn-sm';
+    addtoCartBtn.textContent = 'ADD TO CART';
+    addtoCartBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        // document.getElementById('book-heading').textContent = 'Edit Book';
+        // document.getElementById('title').value = book.title;
+        // document.getElementById('isbn').value = book.isbn;
+        // document.getElementById('publishedDate').value = book.publishedDate;
+        // document.getElementById('author').value = book.author;
+        // document.getElementById('submit-btn').dataset.id = book.id;
+    });
+  
+    actions.appendChild(addtoCartBtn);
+
+    div.appendChild(actions);
+
+    document.getElementById('client-book-card').appendChild(div);
+
+}
+
