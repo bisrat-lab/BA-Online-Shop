@@ -1,14 +1,14 @@
-const User = require("../modules/userroll");
+const User = require("../modules/users");
 const jwt = require("jsonwebtoken");
 const secret = "Asgets shoping";
 
 exports.login = (req, res, next) => {
   console.log("hello");
-  const user = new User(req.body.username, req.body.password, null).login();
+  const user = new User(null,req.body.username,null,null,req.body.password).login()
   if (user) {
     //generate token, send back
     const jwtToken = jwt.sign(
-      { username: user.username, role: user.role },
+      {username: user.username, role: user.role },
       secret
     );
     res.json({ jwtToken });

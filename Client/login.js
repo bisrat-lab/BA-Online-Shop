@@ -37,13 +37,14 @@ window.onload = function () {
 
         //! add/update Books
         document.getElementById('submit-btn').onclick = function(event) {
-            console.log('clicked')
             event.preventDefault();
                 if (!document.getElementById('submit-btn').dataset.id) {
                     addBook()  
                 } else {
                     editProduct();
                 }  
+
+
         }
 
     document.getElementById("login-btn").onclick = async (event) =>{
@@ -87,38 +88,35 @@ window.onload = function () {
         },3000)
         
     }
-    //   displayLogin.style.display = "none";
-  
-  
-    //   const username = document.getElementById("signup-username").value;
-    //   const firstname = document.getElementById("signup-firstname").value;
-    //   const lastname = document.getElementById("signup-lastname").value;
-    //   const password = document.getElementById("signup-password").value;
-  
-    //   fetch("http://localhost:3007/users", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       username: username,
-    //       firstname: firstname,
-    //       lastname: lastname,
-    //       password: password,
-    //     }),
-    //   }).then((data) =>data.json());
-  
-    //   displayLogin.style.display = "block";
-    //   displaySignup.style.display = "none";
     };
 
     document.getElementById('logoutBtn').addEventListener('click',()=>{
         sessionStorage.removeItem('accessToken');
         location.reload();
     })
+
+        document.getElementById('reg-btn').addEventListener('click',async function (event){
+            event.preventDefault()
+            let result = await fetch('http://localhost:3006/users',{
+                method:'POST',
+                headers:{
+                "Content-type": "application/json",
+
+            },
+            body:JSON.stringify({
+                username: document.getElementById("signup-username").value,
+                firstname: document.getElementById("signup-firstname").value,
+                lastname: document.getElementById("signup-lastname").value,
+                password: document.getElementById("signup-password").value,
+            })
+            }).then(res=>res.json())
+            console.log(result);
+            document.getElementById("login-div").style.display = "block";
+            document.getElementById("signup-form").style.display = "none";
+        })
   };
 
-
+//!end of window load
 
 
   async function getBooks(){
