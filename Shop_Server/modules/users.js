@@ -35,6 +35,7 @@ class User {
  login() {
     return users.find(u => u.username == this.username && u.password == this.password);
 }
+
 };
 
 

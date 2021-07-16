@@ -1,11 +1,11 @@
 const Book = require("../modules/books");
 // const Cart = require("../model/cart");
- //!Get all Books
+//!Get all Books
 module.exports.getAllBooks = (req, res, next) => {
   res.status(200).json(Book.getAll());
 };
 
- //!save
+//!save
 exports.save = async (req, res, next) => {
   const book = req.body;
   console.log(book);
@@ -24,37 +24,29 @@ exports.save = async (req, res, next) => {
   }
 };
 
-
- //!find By ID
+//!find By ID
 exports.getBookById = (req, res, next) => {
   res.status(200).json(Book.findBookByID(req.params.id));
 };
 
- //!Update By ID
+//!Update By ID
 exports.update = (req, res) => {
-    const book = req.body;
-    const updatebook = new Book(
-      req.params.id,
-      book.title,
-      book.isbn,
-      book.publishedDate,
-      book.author
-    ).update();
-    res.status(200).json(updatebook);
-  };
+  const book = req.body;
+  const updatebook = new Book(
+    req.params.id,
+    book.title,
+    book.isbn,
+    book.publishedDate,
+    book.author
+  ).update();
+  res.status(200).json(updatebook);
+};
 
+//!Delete By ID
+exports.deleteById = (req, res, next) => {
+  Book.deleteById(req.params.id);
+  res.status(200).end();
+};
 
-  //!Delete By ID
-  exports.deleteById = (req, res, next) => {
-    Book.deleteById(req.params.id);
-    res.status(200).end();
-  };
+//!Add to Cart ID
 
- //!Add to Cart ID
-//  exports.addToCart = (req, res, next) => {
-//   const addBooks = res.json(Book.findBookByID(req.body.id))[0];
-//   console.log(addBooks)
-//   Cart.save(addBooks);
-//   console.log(Cart.getCart())
-//   res.end('saved')
-// };

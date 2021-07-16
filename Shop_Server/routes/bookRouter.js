@@ -21,5 +21,8 @@ router.put('/:id',userController.authorizeAdmin,bookControllers.update);
 // router.delete('/:id',bookControllers.deleteById);
 router.delete('/:id',userController.authorizeAdmin,bookControllers.deleteById);
 
+//!Post add to cart
+// router.post('/addToCart',bookControllers.addToCart);
+
 
 module.exports = router;

@@ -12,7 +12,11 @@ function displayClientPage(){
 }
 
 
-window.onload = function () {   
+window.onload = function () {  
+    
+    // addcart();
+
+
     if(sessionStorage.getItem("accessToken")){
             displayAdminPage();
             displayClientPage();
@@ -326,19 +330,74 @@ function renderClientBook(book){
     addtoCartBtn.textContent = 'ADD TO CART';
     addtoCartBtn.addEventListener('click', function(event) {
         event.preventDefault();
-        // document.getElementById('book-heading').textContent = 'Edit Book';
-        // document.getElementById('title').value = book.title;
-        // document.getElementById('isbn').value = book.isbn;
-        // document.getElementById('publishedDate').value = book.publishedDate;
-        // document.getElementById('author').value = book.author;
-        // document.getElementById('submit-btn').dataset.id = book.id;
+        console.log("clicked")
+
+       
+                    document.getElementById('submit-btn').dataset.id = book.id;
+                    document.getElementById('title').value;
+                    document.getElementById('isbn').value;
+                    document.getElementById('publishedDate').value;
+                    document.getElementById('author').value;
+            
+           fetch('http://localhost:3006/addToCart',  {
+                     method: 'POST',
+                     headers: {
+                         'Content-type': 'application/json',
+                         // 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')
+                     },
+                     body: JSON.stringify({
+                         id:document.getElementById('submit-btn').dataset.id = book.id,
+                         
+                         title: document.getElementById('title').value,
+                         isbn: document.getElementById('isbn').value,
+                         publishedDate: document.getElementById('publishedDate').value,
+                         author: document.getElementById('author').value
+             
+                     })
+             }).then(res => res.json())  
+             .then((data)=> {
+                 attachSingleProduct(document.getElementById('book-list-body'),data);
+            });
+     
+     
+
+        
+                
     });
-  
+
+
+
+
+ 
     actions.appendChild(addtoCartBtn);
 
     div.appendChild(actions);
 
     document.getElementById('client-book-card').appendChild(div);
 
+    // document.getElementById('').appendChild(div);
+
 }
 
+
+
+
+
+
+
+function attachSingleProduct(parentNode, book) {
+    const tr = document.createElement("tr");
+    const titleTd = document.createElement("td");
+    titleTd.textContent = book.title;
+    tr.appendChild(titleTd);
+    
+    const priceTd = document.createElement("td");
+    priceTd.textContent = book.isbn;
+    tr.appendChild(priceTd);
+    
+    const author = document.createElement("td");
+    author.textContent = book.author;
+    tr.append(author);
+      
+    parentNode.appendChild(tr);
+  }

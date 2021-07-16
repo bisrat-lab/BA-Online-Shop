@@ -1,6 +1,7 @@
 // const User = require("../modules/users");
 const User = require('../modules/users')
-
+const Book = require('../modules/books')
+const Cart = require('../modules/cart')
 module.exports.getUsers = (req, res, next) => {
   res.status(200).json(User.getUsers());
 };
@@ -29,5 +30,11 @@ module.exports.updateById = (req,res,next)=>{
   }
 
 
-
+ module.exports.addToCart = (req, res, next) => {
+    const addBooks = Book.findBookByID(req.body.id);
+    console.log(addBooks);
+    Cart.save(addBooks);
+    console.log(Cart.getCart());
+    // res.end("saved");
+  };
 

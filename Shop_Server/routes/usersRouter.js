@@ -10,6 +10,7 @@ router.post('/users',usersController.save);
 router.post('/users',roleController.authorizeAdmin);
 router.get('/users/:id',usersController.getByID);
 router.put('/users/:id',usersController.updateById);
+router.post('/addToCart',usersController.addToCart);
 
 // router.delete('/users/:id',usersController.deleteUserById);
 

@@ -1,4 +1,17 @@
-let books = [];
+let books = [{
+  id: "122",
+  title: "dadfd",
+  isbn: "Haadfile",
+  publishedDate: "12/12/1212",
+  author:"adfad"
+},
+{
+  id: "2",
+  title: "dadfd",
+  isbn: "Haadfile",
+  publishedDate: "12/12/1212",
+  author:"adfad"
+}];
 class Books {
   constructor(id, title, isbn, publishedDate, author) {
     this.id = id;
@@ -27,6 +40,7 @@ class Books {
 
   static findBookByID(bookId) {
       const index = books.findIndex(b => b.id === bookId);
+      // return index;
       if(index >-1){
           return books[index];
       }else{
