@@ -22,7 +22,7 @@
   <li>run html</li>
 </ul>
 
-<h1> To login to BAFE-Online-Shop </h1>
+<h1> To login to BAFE-Online-Book-Shop </h1>
 <p>to login as admin</p>
 <p>username: username</p>
 <p>password: password</p>
@@ -31,7 +31,7 @@
 <h3>dependencies</h3>
 <p><a href = "https://www.npmjs.com/package/express">expressjs</a> - The server for handling and routing HTTP requests </p>
 <p><a href = "https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a> - For generating JWTs used by authentication </p> 
-<p><a href = "https://www.npmjs.com/package/cors">cors</a></p> -----
+<p><a href = "https://www.npmjs.com/package/cors">cors</a> - is a browser mechanism which enables controlled access to resources located outside of a given domain </p>
 <h1>Application Structure</h1>
 <ul>
   <li>app.js - The entry point to our application. </li>
