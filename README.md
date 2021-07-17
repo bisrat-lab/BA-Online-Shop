@@ -15,19 +15,20 @@
 <h1>Getting started</h1>
 <ul>
   <li>To get to Node server running locally:</li>
-Clone the repo
-npm install to install all dependencies
-npm nodemon app.js or npm node app.js
-run html
+  <li>Clone the repo</li>
+  <li>npm install to install all dependencies</li>
+  <li>npm nodemon app.js or npm node app.js</li>
+  <li>run html</li>
 </ul>
 
 <h1> To login to BAFE-Online-Shop </h1>
-to log in as admin username and password is hardcoded
+<p>to login as admin username and password is hardcoded</p>
+<p>username: username</p>
+<p>password: password</p>
 
-username: username
-password: password
+<p>as user as a first time user signup and login using based on your registration</p>
 
-<h1>COde Overview </h1>
+<h1>Code Overview </h1>
 <h3>dependencies</h3>
 <p><a https://www.npmjs.com/package/express">expressjs</a></p> - The server for handling and routing HTTP requests
 <p><a href="https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a></p>  - For generating JWTs used by authentication
@@ -38,5 +39,5 @@ routes/ - This folder contains the route definitions for our API.
 models/ - This folder contains the schema definitions for our --- models.
 <h1>Authentication</h1>
 Requests are authenticated using the Authorization header with a valid JWT. 
-
+<br><br>
 <p><img src="https://msd.miu.edu/wp-content/uploads/msd-logo-6-420x75-1.png"></p>
