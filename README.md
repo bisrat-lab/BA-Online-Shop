@@ -15,10 +15,10 @@
 <h1>Getting started</h1>
 <ul>
   <li>To get to Node server running locally:</li>
-Clone the repo
-npm install to install all dependencies
-npm nodemon app.js or npm node app.js
-run html
+  <li>Clone the repo</li>
+  <li>npm install to install all dependencies</li>
+  <li>npm nodemon app.js or npm node app.js</li>
+  <li>run html</li>
 </ul>
 
 <h1> To login to BAFE-Online-Shop </h1>
