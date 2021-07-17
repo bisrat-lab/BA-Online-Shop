@@ -45,7 +45,7 @@ class User {
   }
 }
 
-let users = [new User(null, "hello", null, null, "123", "admin"),new User(null, "hello", null, null, "456", "user"),new User(null, "aa", null, null, "c", "user")];
+let users = [new User(null, "username", null, null, "password", "admin"),new User(null, "hello", null, null, "456", "user"),new User(null, "aa", null, null, "c", "user")];
 
 // users.push(new User(null, "hello", null, null, "123", "admin"));
 // users.push(new User(null, "hello", null, null, "456", "user"));
