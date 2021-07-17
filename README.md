@@ -1,5 +1,6 @@
 # BAFE-Online-Shop
-<h1>Foo <em>GROUP MEMBERS</em></h1>
+
+<h1>GROUP MEMBERS</h1>
 
 |First name | Last Name |
 |--- | --- |
