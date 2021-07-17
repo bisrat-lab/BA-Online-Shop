@@ -29,9 +29,9 @@
 
 <h1> Code Overview </h1>
 <h3>dependencies</h3>
-<p><a href = "https://www.npmjs.com/package/express">expressjs</a></p> - The server for handling and routing HTTP requests
-<p><a href = "https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a></p>  - For generating JWTs used by authentication
-<p><a href = "https://www.npmjs.com/package/cors">cors</a></p>  - 
+<p><a href = "https://www.npmjs.com/package/express">expressjs</a> - The server for handling and routing HTTP requests </p>
+<p><a href = "https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a> - For generating JWTs used by authentication </p> 
+<p><a href = "https://www.npmjs.com/package/cors">cors</a></p> -----
 <h1>Application Structure</h1>
 <ul>
   <li>app.js - The entry point to our application. </li>
@@ -43,4 +43,4 @@ Requests are authenticated using the Authorization header with a valid JWT.
 <p></p>
 <p></p>
 <p></p>
-<p><img src="https://msd.miu.edu/wp-content/uploads/msd-logo-6-420x75-1.png"></p>
+<p><img src="https://msd.miu.edu/wp-content/uploads/msd-logo-6-420x75-1.png" align="center"></p>
