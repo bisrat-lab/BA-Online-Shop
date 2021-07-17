@@ -15,7 +15,8 @@ exports.save = async (req, res, next) => {
       book.title,
       book.isbn,
       book.publishedDate,
-      book.author
+      book.author,
+      book.price
     ).save();
 
     res.json(savedBook);
@@ -37,7 +38,8 @@ exports.update = (req, res) => {
     book.title,
     book.isbn,
     book.publishedDate,
-    book.author
+    book.author,
+    book.price
   ).update();
   res.status(200).json(updatebook);
 };

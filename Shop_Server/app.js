@@ -3,6 +3,7 @@ const cors = require('cors')
 const bookRouter = require('./routes/bookRouter');
 const usersRouter = require("./routes/usersRouter");
 const authRoutes = require("./routes/authoRoute")
+const cartRouter = require("./routes/cartRoute")
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(usersRouter);
 app.use(authRoutes);
 
 app.use("/books", bookRouter);
+app.use(cartRouter);
 
 
 
@@ -25,3 +27,5 @@ app.use(function (err, req, res, next) {
 
 const port = process.env.PORT || 3006;
 app.listen(port, () => console.log(`Your server runing On ${port}`));
+
+
