@@ -1,10 +1,16 @@
-/* body{
-  background-image:  url("./img/IdealBookshelf488_Kids_60695162-0cf7-4098-96eb-0f9de1bc4cb2.jpg");
+body{
+
+  /* background-image:  url("./img/background-topic-training-education-desk-with-books-bookcase-window-defocus-school-concept-greeting-card-with-start-learning_95018-358.jpg ");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-} */
+  width: 100%;  */
+  background: #2193b0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eefcff, #95e3f7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #daf8ff, #9feafc); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
+
+}
 
 .cardbox{
     /* border: solid; */
@@ -16,7 +22,9 @@
 
 .cardbox {
    
-    
+  background-image: url("./img/booksHD.jpg");
+  
+  padding-top: 10px;
     border-radius: 5px;
     -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -43,6 +51,8 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     padding: 60px;
+    background-image: url("./img/booksHD.jpg");
+    
   }
 
   hr:not([size]) {
@@ -57,4 +67,13 @@
   margin: 30%;
   text-align: center;
   background-image: url("./img/booksHD.jpg")
+}
+
+
+#cartDiv{
+  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  padding: 60px;
+  text-align: center;
+  background-image: url("./img/booksHD.jpg");
+  
 }
