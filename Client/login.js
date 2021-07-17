@@ -58,6 +58,7 @@ window.onload = function () {
     const warrningdisplay = document.getElementById("error-msg");
     
     loginUser = document.getElementById('username').value;
+    document.getElementById('userID').innerHTML = loginUser;
     const result = await fetch("http://localhost:3006/login", {
       method: "POST",
       headers: {
@@ -125,6 +126,8 @@ window.onload = function () {
       event.preventDefault();
       viewCartList()
     })
+
+    
 };
 
 //!end of window load
