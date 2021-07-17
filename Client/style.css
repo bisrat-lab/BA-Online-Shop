@@ -1,4 +1,10 @@
-
+/* body{
+  background-image:  url("./img/IdealBookshelf488_Kids_60695162-0cf7-4098-96eb-0f9de1bc4cb2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+} */
 
 .cardbox{
     /* border: solid; */
@@ -42,4 +48,13 @@
   hr:not([size]) {
     height: 3px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#login-div{
+  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  border-radius: 6px;
+  padding: 60px;
+  margin: 30%;
+  text-align: center;
+  background-image: url("./img/booksHD.jpg")
 }

@@ -1,30 +1,35 @@
 let books = [{
   id: "122",
-  title: "dadfd",
-  isbn: "Haadfile",
+  title: "Book of Ella",
+  isbn: "2345-3223",
   publishedDate: "12/12/1212",
-  author:"adfad"
+  author:"adfad",
+  price : 33
 },
 {
   id: "2",
-  title: "dadfd",
-  isbn: "Haadfile",
+  title: "The Moon",
+  isbn: "2345-345",
   publishedDate: "12/12/1212",
-  author:"adfad"
+  author:"adfad",
+  price : 25
 }];
+
+let count = 1;
 class Books {
-  constructor(id, title, isbn, publishedDate, author) {
+  constructor(id, title, isbn, publishedDate, author,price) {
     this.id = id;
     this.title = title;
     this.isbn = isbn;
     this.publishedDate = publishedDate;
     this.author = author;
+    this.price = price;
   }
   static getAll() {
     return books;
   }
   save() {
-     this.id = Math.random().toString();
+     this.id = count++;
     books.push(this);
     return this;
   }
