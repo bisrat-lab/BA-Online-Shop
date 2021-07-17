@@ -15,18 +15,17 @@
 <h1>Getting started</h1>
 <ul>
   <li>To get to Node server running locally:</li>
-  <li>Clone the repo</li>
-  <li>npm install to install all dependencies</li>
-  <li>npm nodemon app.js or npm node app.js</li>
-  <li>run html</li>
+Clone the repo
+npm install to install all dependencies
+npm nodemon app.js or npm node app.js
+run html
 </ul>
 
 <h1> To login to BAFE-Online-Shop </h1>
-as admin username and password is hardcoded
+to log in as admin username and password is hardcoded
+
 username: username
 password: password
-
-as user as a first time user signup and login using based on your registration
 
 <h1>COde Overview </h1>
 <h3>dependencies</h3>
