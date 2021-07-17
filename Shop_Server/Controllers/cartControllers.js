@@ -14,7 +14,9 @@ module.exports.listItemCart = (req, res, next) =>{
 }
 
 module.exports.removeCartItem = (req, res, next) =>{
-    const products = Cart.removeItem(req.body.pid);
+    console.log("in controle")
+    console.log(req.params.pid)
+    const products = Cart.removeItem(req.params.pid);
     res.json(products);
 
 }

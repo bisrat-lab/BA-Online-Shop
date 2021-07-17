@@ -26,10 +26,13 @@ class Cart {
         }
     }
     static removeItem(pid) {
-        const index = cart.findIndex(item => item.pid === pid);
-
+        console.log('cart');
+        console.log(pid);
+        const index = cart.map(item => item.pid).indexOf(parseInt(pid))
+        console.log(index);
+        // cart.findIndex(item => item.pid == pid);
         if (index > -1) {
-            if (cart[index].qty > 1) {
+            if (cart[index].qty >= 1) {
                 cart[index].qty = cart[index].qty - 1;
                 return cart[index];
             } else {

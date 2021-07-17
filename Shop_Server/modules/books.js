@@ -1,5 +1,5 @@
 let books = [{
-  id: "122",
+  id: 122,
   title: "Book of Ella",
   isbn: "2345-3223",
   publishedDate: "12/12/1212",
@@ -7,7 +7,7 @@ let books = [{
   price : 33
 },
 {
-  id: "2",
+  id: 2,
   title: "The Moon",
   isbn: "2345-345",
   publishedDate: "12/12/1212",

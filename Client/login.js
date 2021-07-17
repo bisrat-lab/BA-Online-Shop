@@ -1,3 +1,5 @@
+
+
 let loginUser;
 function displayAdminPage() {
   document.getElementById("logoutBtn").style.display = "block";
@@ -413,8 +415,8 @@ function attachItemOnCartList(tbody, element) {
 
   const tr = document.createElement("tr"); //<tr>
 
-  // const pidTd = document.createElement("td"); //<td> Name </td>
-  // pidTd.textContent = element.pid;
+  const pidTd = document.createElement("td"); //<td> Name </td>
+  // pidTd.textContent = pidTd;
   // tr.appendChild(pidTd)
 
 
@@ -433,7 +435,37 @@ function attachItemOnCartList(tbody, element) {
   priceTd.textContent = element.price;
   tr.appendChild(priceTd)
 
+  const actionId = document.createElement("td");
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText = "DELETE"
+        deleteBtn.dataset.id = element.id;
+        actionId.appendChild(deleteBtn);
+        tr.appendChild(actionId);
 
-  // const actionId = document.createElement("td");
+        const updateBtn = document.createElement("button");
+        updateBtn.innerText = "UPDATE";
+        updateBtn.dataset.id = pidTd;
+        actionId.appendChild(updateBtn);
+        tr.appendChild(actionId)
+   
+
+        deleteBtn.addEventListener("click", function () {
+          console.log(element.pid)
+          fetch(`http://localhost:3006/carts/${loginUser}/${element.pid}`, {
+              method: "DELETE",
+              headers: {
+
+                  "Authorization": "Bearer " + sessionStorage.getItem('accessToken')  
+              },
+
+          }).then(data => {
+              tr.remove();
+
+          });
+
+
+      });
+
+  //  const actionId = document.createElement("td");
   tbody.appendChild(tr)
 }
