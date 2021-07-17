@@ -328,7 +328,7 @@ function renderClientBook(book) {
 
   const actions = document.createElement("p");
   const addtoCartBtn = document.createElement("button");
-  addtoCartBtn.classList = "btn btn-primary btn-sm";
+  addtoCartBtn.classList = "btn btn-warning btn-sm";
   addtoCartBtn.textContent = "ADD TO CART";
 
    
