@@ -26,17 +26,17 @@
 <p>username: username</p>
 <p>password: password</p>
 
-<p>as user as a first time user signup and login using based on your registration</p>
-
 <h1>Code Overview </h1>
 <h3>dependencies</h3>
-<p><a https://www.npmjs.com/package/express">expressjs</a></p> - The server for handling and routing HTTP requests
-<p><a href="https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a></p>  - For generating JWTs used by authentication
-<p><a https://www.npmjs.com/package/cors">cors</a></p>  - 
+<p><a "https://www.npmjs.com/package/express">expressjs</a></p> - The server for handling and routing HTTP requests
+<p><a "https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a></p>  - For generating JWTs used by authentication
+<p><a "https://www.npmjs.com/package/cors">cors</a></p>  - 
 <h1>Application Structure</h1>
-app.js - The entry point to our application. 
-routes/ - This folder contains the route definitions for our API.
-models/ - This folder contains the schema definitions for our --- models.
+<ul>
+  <li>app.js - The entry point to our application. </li>
+  <li>routes/ - This folder contains the route definitions for our API.</li>
+  <li>models/ - This folder contains the schema definitions for our --- models.</li>
+ </ul>
 <h1>Authentication</h1>
 Requests are authenticated using the Authorization header with a valid JWT. 
 <br><br>
