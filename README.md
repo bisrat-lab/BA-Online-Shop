@@ -23,7 +23,7 @@
 </ul>
 
 <h1> Admin Login </h1>
-<p>to login as admin</p>
+
 <p>username: username</p>
 <p>password: password</p>
 
