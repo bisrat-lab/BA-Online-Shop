@@ -22,7 +22,7 @@
   <li>run html</li>
 </ul>
 
-<h1> To login to BAFE-Online-Book-Shop </h1>
+<h1> Admin Login </h1>
 <p>to login as admin</p>
 <p>username: username</p>
 <p>password: password</p>
@@ -37,9 +37,11 @@
   <li>app.js - The entry point to our application. </li>
   <li>routes/ - This folder contains the route definitions for our API.</li>
   <li>models/ - This folder contains the schema definitions for our --- models.</li>
+  <li>controllers/ - This folder controllers are the callback functions we passed to the router methods </li>
  </ul>
 <h1>Authentication</h1>
 Requests are authenticated using the Authorization header with a valid JWT. 
+
 <p></p>
 <p></p>
 <p></p>
