@@ -34,7 +34,7 @@ class Books {
     return this;
   }
   update(){
-      const index = books.findIndex(b=> b.id === this.id)
+      const index = books.findIndex(b=> b.id == this.id)
       if(index > -1){
           books.splice(index,1,this);
           return this;
@@ -44,8 +44,8 @@ class Books {
   }
 
   static findBookByID(bookId) {
-      const index = books.findIndex(b => b.id === bookId);
-      // return index;
+      const index = books.findIndex(b => b.id == bookId);
+   
       if(index >-1){
           return books[index];
       }else{
@@ -55,7 +55,7 @@ class Books {
   }
 
   static deleteById(bookId){
-      const index = books.findIndex(b=>b.id === bookId);
+      const index = books.findIndex(b=>b.id == bookId);
       if(index > -1){
           books = books.filter(b=>b.id !== bookId);
       }else {

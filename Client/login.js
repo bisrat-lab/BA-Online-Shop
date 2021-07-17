@@ -200,6 +200,7 @@ function renderBook(book) {
     document.getElementById("isbn").value = book.isbn;
     document.getElementById("publishedDate").value = book.publishedDate;
     document.getElementById("author").value = book.author;
+    document.getElementById("price").value = book.price;
     document.getElementById("submit-btn").dataset.id = book.id;
   });
 
@@ -246,6 +247,7 @@ async function addBook() {
       isbn: document.getElementById("isbn").value,
       publishedDate: document.getElementById("publishedDate").value,
       author: document.getElementById("author").value,
+      price: document.getElementById("price").value
     }),
   }).then((res) => res.json());
   document.getElementById("book-form").reset();
@@ -258,6 +260,7 @@ function editProduct() {
   const isbn = document.getElementById("isbn").value;
   const publishedDate = document.getElementById("publishedDate").value;
   const author = document.getElementById("author").value;
+  const price = document.getElementById("price").value
   fetch("http://localhost:3006/books/" + id, {
     method: "PUT",
     headers: {
@@ -269,6 +272,7 @@ function editProduct() {
       isbn: isbn,
       publishedDate: publishedDate,
       author: author,
+      price: price
     }),
   })
     .then((response) => response.json())
